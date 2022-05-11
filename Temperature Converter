@@ -1,0 +1,59 @@
+package com.Divyansh;
+
+import java.util.Scanner;
+
+public class CelsiustoFahrenheit {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the Temperature value: ");
+        float value = input.nextFloat();
+
+        System.out.println("Note that: ");
+        System.out.println("Enter Fah for Fahrenheit");
+        System.out.println("Enter Cel for Celsius");
+        System.out.println("Enter Kel for Kelvin");
+
+        System.out.print("Please enter unit of temperature that you entered: ");
+        String Unit = input.next();
+
+        System.out.print("Enter in which unit from above you want to convert: ");
+        String ConvertTo = input.next();
+
+        if("Fah".equals(Unit) && "Cel".equals(ConvertTo))
+        {
+            float Result = (float) ((value - 32)*(0.5556));
+            System.out.println("Temperature in Celsius is: " + Result);
+        }
+        else if("Cel".equals(Unit) && "Fah".equals(ConvertTo))
+        {
+            float Result = (float) ((value*1.8) + 32);
+            System.out.println("Temperature in Fahrenheit is: " + Result);
+        }
+        else if("Fah".equals(Unit) && "Kel".equals(ConvertTo))
+        {
+            float Result = (float) (((value - 32)*(0.5556)) + 273.15);
+            System.out.println("Temperature in Kelvin is: " + Result);
+        }
+        else if("Kel".equals(Unit) && "Fah".equals(ConvertTo))
+        {
+            float Result = (float) (((1.8)*(value - 273)) + 32);
+            System.out.println("Temperature in Fahrenheit is: " + Result);
+        }
+        else if("Cel".equals(Unit) && "Kel".equals(ConvertTo))
+        {
+            float Result = (float)(value + 273.15);
+            System.out.println("Temperature in Kelvin is: " + Result);
+        }
+        else if("Kel".equals(Unit) && "Cel".equals(ConvertTo))
+        {
+            float Result = (float)(value - 273.15);
+            System.out.println("Temperature in Celsius is: " + Result);
+        }
+
+
+
+
+
+
+    }
+}
