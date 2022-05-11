@@ -1,0 +1,55 @@
+package com.Divyansh;
+
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Please enter the first number:  ");
+        int num1 = input.nextInt();
+        System.out.print("Please enter the second number: ");
+        int num2 = input.nextInt();
+
+        int sum = num2 + num1;
+        int multiplication = num2*num1;
+        int division1 = num2/num1;
+        int division2 = num1/num2;
+        int subtraction1 = num2 - num1;
+        int subtraction2 = num1 - num2;
+
+        System.out.print("Please enter the operation you want to perform: ");
+
+        String operation = input.next();
+
+        if("add".equals(operation))
+        {
+            System.out.println("The sum of the two numbers is: " + sum);
+        }
+        else if ("multiply".equals(operation))
+        {
+            System.out.println("The Product of the two numbers is: " + multiplication);
+        }
+        else if("divide".equals(operation))
+        {
+            if(num2>num1) {
+                System.out.println("The quotient of the two numbers when divided is: " + division1);
+            }
+            else{
+                System.out.println("The quotient of the two numbers when divided is: " + division2);
+            }
+        }
+        else if("subtract".equals(operation))
+        {
+            if(num2>num1) {
+                System.out.println("The difference between two numbers is:  " + subtraction1);
+            }
+            else{
+                System.out.println("The difference between two numbers is: " + subtraction2);
+            }
+
+        }
+
+
+    }
+}
