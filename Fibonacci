@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        Scanner Input = new Scanner(System.in);
+        System.out.print("Please enter how many fibonacci numbers you want to print: ");
+        int n = Input.nextInt();
+
+        int a = 0;
+        int b = 1;
+
+        System.out.print("0" + ",");
+
+        for(int i = 1; i<n; i++)
+        {
+            int c = a+b;
+            a=b;
+            b=c;
+
+            System.out.print(a + ",");
+        }
+    }
+}
