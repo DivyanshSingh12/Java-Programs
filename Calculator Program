@@ -6,47 +6,78 @@ public class Calculator {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Please enter the first number:  ");
-        int num1 = input.nextInt();
-        System.out.print("Please enter the second number: ");
-        int num2 = input.nextInt();
+        System.out.println("Note that: ");
+        System.out.println("Enter add for adding");
+        System.out.println("Enter subtract for subtracting");
+        System.out.println("Enter multiply for multiplication");
+        System.out.println("Enter divide for division");
+        System.out.println("Enter exit to end the program\n");
 
-        int sum = num2 + num1;
-        int multiplication = num2*num1;
-        int division1 = num2/num1;
-        int division2 = num1/num2;
-        int subtraction1 = num2 - num1;
-        int subtraction2 = num1 - num2;
+        while(true)
+        {
 
-        System.out.print("Please enter the operation you want to perform: ");
+            System.out.print("Please enter the operation you want to perform: ");
 
-        String operation = input.next();
+            String operation = input.next();
 
-        if("add".equals(operation))
-        {
-            System.out.println("The sum of the two numbers is: " + sum);
-        }
-        else if ("multiply".equals(operation))
-        {
-            System.out.println("The Product of the two numbers is: " + multiplication);
-        }
-        else if("divide".equals(operation))
-        {
-            if(num2>num1) {
-                System.out.println("The quotient of the two numbers when divided is: " + division1);
+            if("exit".equals(operation) || "Exit".equals(operation))
+            {
+                break;
             }
-            else{
-                System.out.println("The quotient of the two numbers when divided is: " + division2);
+
+
+            System.out.print("Please enter the first number:  ");
+            int num1 = input.nextInt();
+            System.out.print("Please enter the second number: ");
+            int num2 = input.nextInt();
+
+
+            int sum = num2 + num1;
+            int multiplication = num2 * num1;
+            int division1 = num2 / num1;
+            int division2 = num1 / num2;
+            int subtraction1 = num2 - num1;
+            int subtraction2 = num1 - num2;
+
+
+
+
+            if ("add".equals(operation))
+            {
+                System.out.println("The sum of the two numbers is: " + sum);
             }
-        }
-        else if("subtract".equals(operation))
-        {
-            if(num2>num1) {
-                System.out.println("The difference between two numbers is:  " + subtraction1);
+            else if ("multiply".equals(operation))
+            {
+                System.out.println("The Product of the two numbers is: " + multiplication);
             }
-            else{
-                System.out.println("The difference between two numbers is: " + subtraction2);
+            else if ("divide".equals(operation))
+            {
+                if (num2 > num1)
+                {
+                    System.out.println("The quotient of the two numbers when divided is: " + division1);
+                }
+                else
+                {
+                    System.out.println("The quotient of the two numbers when divided is: " + division2);
+                }
             }
+            else if ("subtract".equals(operation))
+            {
+                if (num2 > num1)
+                {
+                    System.out.println("The difference between two numbers is:  " + subtraction1);
+                }
+                else
+                {
+                    System.out.println("The difference between two numbers is: " + subtraction2);
+                }
+
+            }
+            else
+            {
+                System.out.println("Please enter a valid operation");
+            }
+
 
         }
 
