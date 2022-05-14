@@ -12,11 +12,11 @@ public class Prime {
     }
     static void check(int a){
         if(a%2==0){
-            System.out.println(a + " is not a prime number");
+            System.out.println(a + " is a Even number");
         }
         else
         {
-            System.out.println(a + " is a prime number");
+            System.out.println(a + " is a odd number");
         }
     }
 }
