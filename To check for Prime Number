@@ -14,10 +14,9 @@ public class Prime {
             if (b % a == 0) {
                 System.out.println(b + " is Not a Prime number");
                 break;
-            } else {
-                System.out.println(b + " is a Prime number");
             }
             a++;
+
         }
         if(a>b/2){
             System.out.println(b + " is a Prime number");
