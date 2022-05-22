@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class Armstrong {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter the number: ");
+        int number = input.nextInt();
+        int b = number;
+        int a = number;
+        int z = 0;
+        int n = 0;
+
+        //To find number of digits in that number
+        for(int i = 0; number!=0; i++){
+            int rem = number%10;
+            n = n + 1;
+            number = number/10;
+        }
+        int sum = 0;
+        int k = 0;
+        int s = n;
+
+        //To get the sum of each digit to the power of number of digits in that number
+        for(int j = 0; a!=0; j++){
+            int rem = a%10;
+            k = (int) Math.pow(rem, s);
+            sum = k;
+            z = k + z;
+            a = a/10;
+        }
+
+        if(z==b){
+            System.out.print("This is a Armstrong number");
+        }
+        else if(z!=b){
+            System.out.println("This is not a Armstrong number");
+        }
+
+    }
+}
