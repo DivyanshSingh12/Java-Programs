@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class MaxInArray {
     public static void main(String[] args) {
+        
         Scanner input = new Scanner(System.in);
         System.out.print("Please enter the length of the array that you need: ");
         int len = input.nextInt();
