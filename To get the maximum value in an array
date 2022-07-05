@@ -1,0 +1,37 @@
+package com.Divyansh;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MaxInArray {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter the length of the array that you need: ");
+        int len = input.nextInt();
+
+        Scanner input1 = new Scanner(System.in);
+        System.out.print("Please enter the numbers that you want in array: ");
+
+        int[] arr = new int[len];
+
+        for(int i = 0; i<arr.length; i++){
+            arr[i] = input1.nextInt();
+        }
+
+        System.out.print("The array is: ");
+        System.out.println(Arrays.toString(arr));
+
+        System.out.print("The maximum value in this array is: " + max(arr));
+
+    }
+    
+    static int max(int[] arr){
+        int maxV = arr[0];
+        for(int i = 1; i<arr.length; i++){
+            if(arr[i]>maxV){
+                maxV = arr[i];
+            }
+        }
+        return maxV;
+    }
+}
