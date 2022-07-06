@@ -1,0 +1,37 @@
+package com.Divyansh;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ReverseArrays {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter the length of the array to be created: ");
+        int len = input.nextInt();
+
+        int[] arr = new int[len];
+
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the Numbers to be stored in array: ");
+
+        for(int i = 0; i<arr.length; i++){
+            arr[i] = in.nextInt();
+        }
+
+        System.out.print("The array is: ");
+        System.out.println(Arrays.toString(arr));
+
+        reverse(arr);
+        System.out.print("The reversed array is: ");
+        System.out.println(Arrays.toString(arr));
+    }
+
+    static void reverse(int[] arr){
+        for(int i = 0; i<arr.length/2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[arr.length - (i+1)];
+            arr[arr.length - (i+1)] = temp;
+        }
+    }
+}
