@@ -1,0 +1,62 @@
+package com.Divyansh;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MinMaxOfArray {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter the length of the array to be created: ");
+        int len = input.nextInt();
+
+        int[] arr = new int[len];
+
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the numbers that you want in the array: ");
+
+        for(int i = 0; i<arr.length; i++){
+            arr[i] = in.nextInt();
+        }
+        System.out.print("The array is: ");
+        System.out.println(Arrays.toString(arr));
+
+        Scanner input1 = new Scanner(System.in);
+        System.out.println("Enter 'Min' to find minimum number in array \n" + "Enter 'Max' to get the maximum number");
+        String request = input1.next();
+
+        if(request.equals("Max")){
+            max(arr);
+        }
+        else if(request.equals("Min")){
+            min(arr);
+        }
+
+
+    }
+    static void max(int[] arr){
+        if(arr.length == 0){
+            return;
+        }
+        int temp = arr[0];
+        for(int i = 1; i<arr.length; i++){
+            if(arr[i]>temp){
+                temp = arr[i];
+            }
+        }
+        System.out.println("The maximum value in the array is: " + temp);
+
+
+    }
+    static void min(int[] array){
+        if(array.length == 0){
+            return;
+        }
+        int temp = array[0];
+        for(int i = 1; i<array.length; i++){
+            if(array[i]<temp){
+                temp = array[i];
+            }
+        }
+        System.out.println("The minimum value in the array is: " + temp);
+    }
+}
