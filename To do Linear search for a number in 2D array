@@ -1,0 +1,54 @@
+package com.Divyansh;
+
+import java.util.Scanner;
+
+public class Searchin2D {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter the number of rows: ");
+        int row = input.nextInt();
+
+        Scanner input1 = new Scanner(System.in);
+        System.out.print("Please enter the number of columns: ");
+        int col = input1.nextInt();
+
+        int[][] arr = new int[row][col];
+
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the numbers you want in array: ");
+
+        for(int i = 0; i<row; i++){
+            for(int j = 0; j<col; j++){
+                arr[i][j] = in.nextInt();
+            }
+        }
+        print(row, col, arr);
+
+        Scanner input2 = new Scanner(System.in);
+        System.out.print("Please enter the number to search for: ");
+        int num = input2.nextInt();
+
+        search(num,row, col,arr);
+
+    }
+    static void print( int row, int col, int[][] arr){
+        for(int i = 0; i<row; i++){
+            for(int j = 0; j<col; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void search(int num, int row, int col, int[][] arr){
+        for(int i = 0; i<1; i++){
+            for(int j = 0; j< row; j++){
+                for(int k = 0; k<col; k++){
+                    if(arr[j][k] == num){
+                        System.out.println("Yes at indexes \n" + "Row: "+ j + "\n"+ "In Row at index: "+ k);
+                    }
+                }
+            }
+        }
+    }
+}
