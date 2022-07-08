@@ -1,0 +1,71 @@
+package com.Divyansh;
+
+import java.util.Scanner;
+
+public class MinMaxIn2D {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter the number of rows: ");
+        int row = input.nextInt();
+
+        Scanner input1 = new Scanner(System.in);
+        System.out.print("Please enter the number of columns: ");
+        int col = input1.nextInt();
+
+        int[][] arr = new int[row][col];
+
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the numbers that you want in array: ");
+
+        for(int i = 0; i<row; i++){
+            for(int j = 0; j<col; j++){
+                arr[i][j] = in.nextInt();
+            }
+        }
+        System.out.println("The array is: ");
+        print(row, col, arr);
+
+        Scanner input2 = new Scanner(System.in);
+        System.out.println("Please enter 'Min' for finding minimum value in the array\n"+"And 'Max' for Maximum");
+        String request = input2.next();
+
+        if(request.equals("Min")){
+            min(row, col, arr);
+        }
+        else if(request.equals("Max")){
+            max(row, col, arr);
+        }
+
+    }
+    static void print(int row, int col, int[][] arr){
+        for(int i = 0; i<row; i++){
+            for(int j = 0; j<col; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    static void max(int row, int col, int[][] arr){
+        int temp = arr[0][0];
+        for(int i = 0; i<row; i++){
+            for(int j = 0; j<col; j++){
+                if(arr[i][j]>temp){
+                    temp = arr[i][j];
+                }
+            }
+        }
+        System.out.print("The maximum value in the array is: " + temp);
+    }
+    static void min(int row, int col, int[][] arr){
+        int temp = arr[0][0];
+        for(int i = 0; i<row; i++){
+            for(int j = 0; j<col; j++){
+                if(arr[i][j]<temp){
+                    temp = arr[i][j];
+                }
+            }
+        }
+        System.out.println("The minimum value in the array is: " + temp);
+
+    }
+}
