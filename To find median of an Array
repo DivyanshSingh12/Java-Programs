@@ -1,0 +1,41 @@
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Arraysmedian {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the length of the array to be created: ");
+        int len = in.nextInt();
+
+        int[] arr = new int[len];
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter the numbers you want in array: ");
+
+        for(int i = 0; i<arr.length; i++){
+            arr[i] = input.nextInt();
+        }
+
+        System.out.print("The array is: ");
+        System.out.println(Arrays.toString(arr));
+
+        System.out.print("The median of the array is: ");
+        float k = median(arr);
+        System.out.println(k);
+    }
+    static float median(int[] arr){
+        Arrays.sort(arr);
+        float mid;
+        if(arr.length%2==0){
+            int index = arr.length/2;
+            float a = arr[index] + arr[index-1];
+            mid = a/2;
+        }
+        else{
+            mid = arr[arr.length/2];
+        }
+        return mid;
+    }
+
+}
