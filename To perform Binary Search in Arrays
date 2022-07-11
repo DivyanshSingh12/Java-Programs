@@ -1,0 +1,49 @@
+package com.Divyansh;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class BinarySearch {
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the length of the array to be created: ");
+        int len = in.nextInt();
+
+        int[] arr = new int[len];
+        System.out.print("Please enter the numbers you want in array: ");
+
+        for(int i = 0; i<len; i++){
+            arr[i] = in.nextInt();
+        }
+        System.out.print("The array is: ");
+        System.out.println(Arrays.toString(arr));
+
+        System.out.print("Please enter the number you want to search for: ");
+        int num = in.nextInt();
+
+        int result = binarys(arr,num);
+        if(result != -1) {
+            System.out.println("Exists at index: " + result);
+        }
+        else System.out.println(result);
+
+    }
+    static int binarys(int[] arr, int num){
+        int start;
+        int end = arr.length;
+
+             for(start = 0; start<end; start++) {
+                 int mid = (start + end)/2;
+                if (arr[start] == num) {
+                    return start;
+                }
+                else if (arr[mid] > num) {
+                      end = mid;
+                }
+                else if(arr[mid] < num){
+                    start = mid;
+                }
+            }
+             return -1;
+    }
+}
