@@ -1,0 +1,40 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Ceiling {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the length of the array to be created: ");
+        int len = in.nextInt();
+
+        int[] arr = new int[len];
+
+        System.out.print("Please enter the numbers you want in array: ");
+        for(int i = 0; i<arr.length; i++){
+            arr[i] = in.nextInt();
+        }
+        System.out.println("The array is: " + Arrays.toString(arr));
+
+        System.out.print("Please enter the number of which you wanna know ceiling: ");
+        int num = in.nextInt();
+        int k = ceiling(arr,num);
+        System.out.print(k);
+    }
+    static int ceiling(int[] arr, int num){
+        int start = 0;
+        int end = arr.length -1;
+        for(start = 0; start<end; start++){
+            int mid = (start+end)/2;
+            if(arr[start] == num){
+                return arr[start];
+            }
+            else if( arr[start] > num && arr[start] < arr[end]){
+                return arr[start];
+            }
+            else if(num > arr[mid]){
+                start = mid;
+            }
+        }
+        return -1;
+    }
+}
