@@ -1,0 +1,50 @@
+
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class BubbleSort {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the length of the array to be created: ");
+        int len = in.nextInt();
+
+        int[] arr = new int[len];
+        System.out.print("Please enter the elements of the array: ");
+
+        for(int i = 0; i<arr.length; i++){
+            arr[i] = in.nextInt();
+        }
+        System.out.print("The array is: ");
+        System.out.println(Arrays.toString(arr));
+
+       int[] arr1 = sort(arr);
+
+       System.out.print("The sorted array is: ");
+       System.out.println(Arrays.toString(arr1));
+
+
+    }
+
+    static int[] sort(int[] arr){
+
+        boolean swapped;
+        for(int j = 0; j<arr.length-1; j++) {
+            swapped = false;
+            for (int i = 0; i < arr.length - j - 1; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+            if(!swapped){ //or (swapped == false)
+                break;
+            }
+
+        }
+        return arr;
+    }
+
+}
