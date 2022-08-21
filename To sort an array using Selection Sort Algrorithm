@@ -1,0 +1,50 @@
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class SelectionSort {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the length of the array to be created: ");
+        int len = in.nextInt();
+
+        int[] arr = new int[len];
+
+        System.out.print("Please enter the elements of the array: ");
+        for(int i = 0; i<arr.length; i++){
+            arr[i] = in.nextInt();
+        }
+        System.out.print("The array is: ");
+        System.out.println(Arrays.toString(arr));
+
+        System.out.print("The sorted array is: ");
+
+        int[] arr1 = Sort(arr);
+        System.out.println(Arrays.toString(arr1));
+    }
+    static void swap(int[] arr, int first, int second){
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+
+    static int max(int[] arr, int end){
+        int max = 0;
+        for (int i = 0; i <= end ; i++) {
+            if(arr[max] < arr[i]){
+                max = i;
+            }
+        }
+        return max;
+    }
+
+    static int[] Sort(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            int last = arr.length - i - 1;
+            int maxIndex = max(arr, last);
+
+            swap(arr, maxIndex, last);
+        }
+        return arr;
+    }
+}
