@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class PascalTriangleRowSum {
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the row number of which you want to know sum: ");
+        int row = in.nextInt();
+
+        int sum = 1 << row - 1; // As we know a << b = 2 raised to the power b, mathematically sum of nth row of pascal's triangle is 2 raised to power n - 1.
+
+        System.out.println("The sum of Row number " + row + " of pascal's triangle is: " + sum);
+    }
+}
