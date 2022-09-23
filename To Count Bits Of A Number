@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class CountBits {
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the number: ");
+        int num = in.nextInt();
+
+        int n = count(num);
+
+        System.out.println("The number of bits in the number is: " + n);
+    }
+    static int count(int n){
+        int c = 0;
+        while(n != 0){
+            n = n >> 1;
+            c = c + 1;
+        }
+        return c;
+    }
+}
