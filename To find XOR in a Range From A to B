@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class RangeXOR {
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter Starting of Range A: ");
+        int a = in.nextInt();
+
+        System.out.print("Please enter Ending of Range B: ");
+        int b = in.nextInt();
+
+        //Range xor for a,b = xor(b) ^ xor(a-1)
+        int ans = XOR(b) ^ XOR(a-1);
+
+        System.out.print("XOR From " + a + " to " + b + " is: " + ans);
+    }
+    //this is for giving xor from 0 to b
+    static int XOR(int b){
+        if(b % 4 == 0){
+            return b;
+        }
+
+        if(b % 4 == 1){
+            return 1;
+        }
+
+        if(b % 4 == 2){
+            return b+1;
+        }
+
+            return 0;
+
+    }
+}
