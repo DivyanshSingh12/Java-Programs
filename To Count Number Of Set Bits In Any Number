@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class SetBits {
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the Number: ");
+        int num = in.nextInt();
+
+        int noOfsetbits = Setbits(num);
+        System.out.println("The number of Set Bits in " + num + " is: " + noOfsetbits);
+    }
+    static int Setbits(int n){
+        int counter = 0;
+        while(n > 0){
+            if((n & 1) == 1){
+                counter = counter + 1;
+            }
+            n = n >> 1;
+        }
+        return counter;
+    }
+}
