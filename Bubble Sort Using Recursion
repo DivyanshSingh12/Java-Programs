@@ -1,0 +1,41 @@
+package com.Divyansh;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class BubbleSortByRec {
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the length of the array: ");
+        int len = in.nextInt();
+
+        int[] arr = new int[len];
+
+        System.out.print("Please enter the elements of the array: ");
+
+        for (int i = 0; i < len; i++) {
+            arr[i] = in.nextInt();
+        }
+
+        Bubble(arr, 0, len - 1);
+
+        System.out.println(Arrays.toString(arr));
+
+    }
+    static void Bubble(int[] arr, int start, int end){
+        if(end == 0){
+            return;
+        }
+        if(end > start){
+            if(arr[start] > arr[start + 1]){
+                int temp = arr[start];
+                arr[start] = arr[start + 1];
+                arr[start + 1] = temp;
+            }
+            Bubble(arr, start + 1, end);
+        }
+        else{
+            Bubble(arr, 0, end - 1);
+        }
+    }
+}
