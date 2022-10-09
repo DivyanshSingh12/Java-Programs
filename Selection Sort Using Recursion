@@ -1,0 +1,44 @@
+package com.Divyansh;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class SelectionSortByRec {
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the length of the array: ");
+        int len = in.nextInt();
+
+        int[] arr = new int[len];
+
+        System.out.print("Please enter the elements of the array: ");
+
+        for(int i = 0; i<len; i++){
+            arr[i] = in.nextInt();
+        }
+
+        System.out.print("The sorted array is: ");
+        SelectionSort(arr, 0, len, 0);
+        System.out.println(Arrays.toString(arr));
+    }
+    static void SelectionSort(int[] arr, int start, int end, int max){
+        if(end == 0){
+            return;
+        }
+        if(start < end){
+            if(arr[start] > arr[max]){  //Here we check if 0th index element is the max
+              SelectionSort(arr, start + 1, end, start);
+            }
+            else {
+                SelectionSort(arr, start + 1, end, max);
+            }
+        }
+        else{                 //Then it now swaps the max with last element
+            int temp = arr[max];
+            arr[max] = arr[end - 1];
+            arr[end - 1] = temp;
+            SelectionSort(arr, 0, end - 1, 0 ); // Then it reduces end by 1, as that is sorted
+        }
+    }
+
+}
