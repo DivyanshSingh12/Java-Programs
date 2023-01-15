@@ -1,0 +1,61 @@
+package com.Divyansh;
+import java.util.Scanner;
+
+
+public class ClassObj {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Please enter number of students: ");
+        int num = in.nextInt();
+
+        for (int i = 0; i < num; i++) {
+        System.out.println("Please enter the name of the Student: ");
+        String name = in.next();
+
+        System.out.println("Please ener the roll number: ");
+        int roll = in.nextInt();
+
+        System.out.println("Please enter the Marks : ");
+        float marks = in.nextFloat();
+
+
+            Students newone = new Students(name, roll, marks); //Students() is a default constructor
+            System.out.println("Name of the Student is: " + newone.name);
+            System.out.println("Roll number of the Student is: " + newone.roll);
+            System.out.println("Marks of the Student is: " + newone.marks);
+        }
+
+
+    }
+    // create a class
+    // for every single student
+    static class Students{
+        String name;
+        int roll;
+        float marks;
+
+        // we need a way to add the values of the above
+        // properties object by object
+        // we need one word to access every object
+        Students (String name, int roll, float marks) { //This is a constructor
+            this.name = name;
+            this.roll = roll;
+            this.marks = marks;
+
+        }
+
+        //When Java will do Garbage collection you can perform things like printing "Object is destroyed",
+        // you cannot manually destroy it, but you can tell it what to do when you are about to destroy this using "finalize" 
+        @Override
+        protected void finalize() throws Throwable {
+            System.out.println("Object is destroyed");
+        }
+    }
+}
+//IMPORTANT
+//As primitives in java are stored in stack as they are not object, but if you want to create one, for example:
+//normally we initialise primitives like : int a = 1;, but to make it as object we use "Wrapper Classes" the same will be done like:
+// Integer a = new Integer(1); or Integer a = 1;
+//There is a keyword that is "final", if that final is used for primitives, the value cannot be changed, and you should write variable name in all caps like:
+// final int NUM = 10;, but if that same keyword is used before objects you can change the values inside of object, but you cannot reassign it, like: you can not change the reference variable to point to same.
