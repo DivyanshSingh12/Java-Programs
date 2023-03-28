@@ -1,0 +1,96 @@
+
+import java.util.Scanner;
+
+public class TicTackToe {
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+
+        //initialize 3 by 3 array
+        char[][] board = new char[3][3];
+
+        //First make it empty array
+        for(int row = 0; row<board.length; row++){
+            for(int col = 0; col<board[0].length; col++){
+                board[row][col] = ' ';
+            }
+        }
+
+        //Giving player named x first chance
+        char player = 'x';
+        boolean Gameover = false;
+
+        //until Gameover is "true" run the loop
+        while(!Gameover){
+
+            System.out.print("Player " + player + " Enter: ");
+            //Taking input of row and column where they want to play their move
+            int row = in.nextInt();
+            int col = in.nextInt();
+
+
+            //check if that place is empty, if empty then accept the move else reject it
+            if(board[row][col] == ' '){
+                board[row][col] = player;
+                printboard(board);
+
+                //check if someone has one, if yes then end the loop
+                if(havewon(board, player)){
+                    System.out.println("Player " + player + " has won");
+                    printboard(board);
+                    Gameover = true;
+                }
+                //For changing turns
+                if(player == 'x'){
+                    player = 'o';
+                }
+                else{
+                    player = 'x';
+                }
+
+            }
+            else{
+                System.out.println("Invalid move, Please try again");
+            }
+
+        }
+
+    }
+
+    //funtion for printing the array
+    private static void printboard(char[][] board) {
+        for(int row = 0; row<board.length; row++){
+            for(int col = 0; col<board[0].length; col++){
+                System.out.print("|" + board[row][col] + " ");
+            }
+            System.out.println("|");
+        }
+    }
+
+    //function to check if someone has one by matching all conditions
+    private static boolean havewon(char[][] board, char player) {
+        //check for rows
+        for(int row = 0; row<board.length; row++){
+            if(board[row][0] == player && board[row][1] == player && board[row][2] == player){
+                return true;
+            }
+        }
+
+        //check for columns
+        for(int col = 0; col<board[0].length; col++){
+            if(board[0][col] == player && board[1][col] == player && board[2][col] == player){
+                return true;
+            }
+        }
+
+        //check for diagonals
+        if(board[0][0] == player && board[1][1] == player && board[2][2] == player){
+            return true;
+        }
+        if(board[0][2] == player && board[1][1] == player && board[2][0] == player){
+            return true;
+        }
+
+        //if not any then return false
+        return false;
+    }
+}
